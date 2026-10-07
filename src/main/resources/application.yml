@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /mini-rib
+
+spring:
+  application:
+    name: mini-rib
+  datasource:
+    url: jdbc:mysql://localhost:3306/mini_rib?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata
+    username: mini_rib
+    password: ${DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-seconds: 900
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%X{requestId}] %logger{36} : %m%n"
