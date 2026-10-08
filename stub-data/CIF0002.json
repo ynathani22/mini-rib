@@ -1,0 +1,4 @@
+[
+  { "cif": "CIF0002", "accNumber": "1002000001", "accHolderName": "Ritika Kanwar", "currCode": "BDT", "dtype": "CASA", "status": "ACTIVE" },
+  { "cif": "CIF0002", "accNumber": "1002000002", "accHolderName": "Ritika Kanwar", "currCode": "BDT", "dtype": "LOAN", "status": "ACTIVE" }
+]

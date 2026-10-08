@@ -23,7 +23,12 @@ app:
   jwt:
     secret: ${JWT_SECRET}
     expiration-seconds: 900
+  stub:
+    data-dir: C:/Users/0525y/Downloads/mini-rib (1)/mini-rib/stub-data
+
 
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%X{requestId}] %logger{36} : %m%n"
+
+
