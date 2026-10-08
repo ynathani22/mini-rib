@@ -32,7 +32,7 @@ Swagger: http://localhost:8080/mini-rib/swagger-ui.html
 `POST /api/v1/auth/login`
 
 ```json
-{ "loginId": "karim.ahmed", "password": "Str0ng@Pass" }
+{ "loginId": "yashika.nathani", "password": "Hell0@world" }
 ```
 
-Test users `karim.ahmed` and `nusrat.jahan`, password `Str0ng@Pass`.
+Test users `yashika.nathani` and `khyati.kalia`, password `Hell0@world`.
