@@ -55,7 +55,7 @@ Each customer has one JSON file named after the CIF, e.g. `stub-data/CIF0004.jso
 
 ```json
 [
-  { "cif": "CIF0004", "accNumber": "1004000001", "accHolderName": "Yashika Nathani", "currCode": "BDT", "dtype": "CASA", "status": "ACTIVE" }
+   { "cif": "CIF0001", "accNumber": "1001000001", "accHolderName": "Yashika Nathani", "currCode": "BDT", "dtype": "CASA", "status": "ACTIVE" }
 ]
 ```
 
@@ -67,7 +67,7 @@ Each customer has one JSON file named after the CIF, e.g. `stub-data/CIF0004.jso
 
 | Login ID | Password | CIF |
 |---|---|---|
-| yashika.nathani | Hell0@world | CIF0001 |
+| yahika.nathani | Hell0@world | CIF0001 |
 | khyati.kalia | Hell0@world | CIF0004 |
 
 On a fresh database these users do not exist yet, register them first (step 1 below).
@@ -110,7 +110,7 @@ On a fresh database these users do not exist yet, register them first (step 1 be
 `POST /api/v1/auth/login`
 
 ```json
-{ "loginId": "yashika.nathani", "password": "Hell0@world" }
+{ "loginId": "yahika.nathani", "password": "Hell0@world" }
 ```
 
 - 200 - returns `accessToken` (valid 15 minutes) and user details
