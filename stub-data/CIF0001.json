@@ -1,0 +1,5 @@
+[
+  { "cif": "CIF0001", "accNumber": "1001000001", "accHolderName": "Yashika Nathani", "currCode": "BDT", "dtype": "CASA", "status": "INACTIVE" },
+  { "cif": "CIF0001", "accNumber": "1001000002", "accHolderName": "Yashika Nathani", "currCode": "USD", "dtype": "DEPOSIT", "status": "ACTIVE" },
+  { "cif": "CIF0001", "accNumber": "1001000003", "accHolderName": "Yashika Nathani", "currCode": "BDT", "dtype": "PREPAID", "status": "ACTIVE" }
+]
