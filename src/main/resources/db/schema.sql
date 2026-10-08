@@ -17,3 +17,19 @@ CREATE TABLE IF NOT EXISTS app_user (
     CONSTRAINT uk_app_user_cif UNIQUE (cif),
     CONSTRAINT uk_app_user_login_id UNIQUE (login_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS fnd_corp_cif_account (
+    id              BIGINT        NOT NULL AUTO_INCREMENT,
+    version         BIGINT        NOT NULL DEFAULT 0,
+    cif             VARCHAR(20)   NOT NULL,
+    acc_number      VARCHAR(20)   NOT NULL,
+    acc_holder_name VARCHAR(100)  NOT NULL,
+    curr_code       VARCHAR(3)    NOT NULL,
+    dtype           VARCHAR(10)   NOT NULL,
+    status          VARCHAR(10)   NOT NULL,
+    created_at      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    CONSTRAINT uk_fnd_corp_cif_account_acc_number UNIQUE (acc_number),
+    INDEX idx_fnd_corp_cif_account_cif (cif)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

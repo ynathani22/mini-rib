@@ -2,7 +2,9 @@ package com.clayfin.training.minirib.mapper;
 
 import com.clayfin.training.minirib.domain.AppUser;
 import com.clayfin.training.minirib.dto.response.LoginResponse;
+import com.clayfin.training.minirib.dto.response.RegisterResponse;
 import org.springframework.stereotype.Component;
+
 
 import java.time.LocalDateTime;
 
@@ -23,4 +25,9 @@ public class UserMapper {
                 user.getStatus(),
                 lastLoginAt);
     }
+    public RegisterResponse toRegisterResponse(AppUser user) {
+        return new RegisterResponse(user.getId(), user.getCif(), user.getLoginId(),
+                user.getFullName(), user.getStatus(), user.getCreatedAt());
+    }
+
 }

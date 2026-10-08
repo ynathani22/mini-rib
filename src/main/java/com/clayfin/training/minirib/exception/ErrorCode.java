@@ -16,6 +16,10 @@ public enum ErrorCode {
     USER_LOCKED(HttpStatus.FORBIDDEN, "User is locked"),
     USER_INACTIVE(HttpStatus.FORBIDDEN, "User is inactive"),
     NOT_FOUND(HttpStatus.NOT_FOUND, "Resource not found"),
+    ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "Account not found"),
+    CIF_NOT_FOUND(HttpStatus.NOT_FOUND, "No customer found for this CIF"),
+    CIF_ALREADY_REGISTERED(HttpStatus.CONFLICT, "This CIF is already registered"),
+    LOGIN_ID_TAKEN(HttpStatus.CONFLICT, "This login ID is already taken"),
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Something went wrong, please try again later");
 
     private final HttpStatus httpStatus;

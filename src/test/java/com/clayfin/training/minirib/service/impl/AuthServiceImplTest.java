@@ -9,6 +9,7 @@ import com.clayfin.training.minirib.exception.ErrorCode;
 import com.clayfin.training.minirib.mapper.UserMapper;
 import com.clayfin.training.minirib.repository.AppUserRepository;
 import com.clayfin.training.minirib.security.JwtService;
+import com.clayfin.training.minirib.stub.CoreBankingStub;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,6 +37,8 @@ class AuthServiceImplTest {
     private JwtService jwtService;
     @Mock
     private LoginAttemptService loginAttemptService;
+    @Mock
+    private CoreBankingStub coreBankingStub;
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(4);
     private AuthServiceImpl authService;
@@ -44,7 +47,7 @@ class AuthServiceImplTest {
     @BeforeEach
     void setUp() {
         authService = new AuthServiceImpl(appUserRepository, passwordEncoder, jwtService,
-                loginAttemptService, new UserMapper());
+                loginAttemptService, new UserMapper(), coreBankingStub);
 
         user = new AppUser();
         user.setId(1L);
