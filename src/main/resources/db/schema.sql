@@ -33,3 +33,20 @@ CREATE TABLE IF NOT EXISTS fnd_corp_cif_account (
     CONSTRAINT uk_fnd_corp_cif_account_acc_number UNIQUE (acc_number),
     INDEX idx_fnd_corp_cif_account_cif (cif)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS pay_payment_detail (
+    id              BIGINT        NOT NULL AUTO_INCREMENT,
+    version         BIGINT        NOT NULL DEFAULT 0,
+    payment_date    DATE          NOT NULL,
+    value_date      DATE          NOT NULL,
+    amount          DECIMAL(19,2) NOT NULL,
+    remarks         VARCHAR(100)  NULL,
+    debit_account   VARCHAR(12)   NOT NULL,
+    credit_account  VARCHAR(12)   NOT NULL,
+    created_by      BIGINT        NOT NULL,
+    created_date    DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    transfer_type   VARCHAR(10)   NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_pay_payment_detail_created_by FOREIGN KEY (created_by) REFERENCES app_user (id),
+    INDEX idx_pay_payment_detail_user_date (created_by, payment_date)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

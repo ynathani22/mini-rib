@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 
     Optional<AppUser> findByLoginId(String loginId);
+    Optional<AppUser> findByCif(String cif);
     boolean existsByCif(String cif);
     boolean existsByLoginId(String loginId);
 }
