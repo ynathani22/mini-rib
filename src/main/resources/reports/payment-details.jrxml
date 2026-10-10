@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport name="payment_details" language="java" pageWidth="842" pageHeight="595" orientation="Landscape"
+              columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+    <parameter name="customerName" class="java.lang.String"/>
+    <parameter name="transferType" class="java.lang.String"/>
+    <parameter name="fromDate" class="java.lang.String"/>
+    <parameter name="toDate" class="java.lang.String"/>
+    <parameter name="totalAmount" class="java.lang.String"/>
+    <parameter name="generatedOn" class="java.lang.String"/>
+
+    <field name="paymentId" class="java.lang.String"/>
+    <field name="paymentDate" class="java.lang.String"/>
+    <field name="valueDate" class="java.lang.String"/>
+    <field name="transferType" class="java.lang.String"/>
+    <field name="debitAccount" class="java.lang.String"/>
+    <field name="creditAccount" class="java.lang.String"/>
+    <field name="amount" class="java.lang.String"/>
+    <field name="remarks" class="java.lang.String"/>
+
+    <title height="75">
+        <element kind="staticText" x="0" y="0" width="802" height="28" fontSize="18.0" bold="true" hTextAlign="Center">
+            <text><![CDATA[Payment Details]]></text>
+        </element>
+        <element kind="textField" x="0" y="32" width="802" height="18">
+            <expression><![CDATA["Customer: " + $P{customerName} + "     Transfer type: " + $P{transferType}]]></expression>
+        </element>
+        <element kind="textField" x="0" y="52" width="802" height="18">
+            <expression><![CDATA["Period: " + $P{fromDate} + " to " + $P{toDate} + "     Generated on: " + $P{generatedOn}]]></expression>
+        </element>
+    </title>
+
+    <columnHeader height="22">
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="0" y="0" width="70" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Payment ID]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="70" y="0" width="80" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Payment Date]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="150" y="0" width="80" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Value Date]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="230" y="0" width="70" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Type]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="300" y="0" width="110" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Debit Account]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="410" y="0" width="110" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[Credit Account]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="520" y="0" width="100" height="22" bold="true" vTextAlign="Middle" hTextAlign="Right"><text><![CDATA[Amount]]></text></element>
+        <element kind="staticText" mode="Opaque" backcolor="#DDDDDD" x="620" y="0" width="182" height="22" bold="true" vTextAlign="Middle"><text><![CDATA[  Remarks]]></text></element>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <element kind="textField" x="0" y="0" width="70" height="20"><expression><![CDATA[$F{paymentId}]]></expression></element>
+            <element kind="textField" x="70" y="0" width="80" height="20"><expression><![CDATA[$F{paymentDate}]]></expression></element>
+            <element kind="textField" x="150" y="0" width="80" height="20"><expression><![CDATA[$F{valueDate}]]></expression></element>
+            <element kind="textField" x="230" y="0" width="70" height="20"><expression><![CDATA[$F{transferType}]]></expression></element>
+            <element kind="textField" x="300" y="0" width="110" height="20"><expression><![CDATA[$F{debitAccount}]]></expression></element>
+            <element kind="textField" x="410" y="0" width="110" height="20"><expression><![CDATA[$F{creditAccount}]]></expression></element>
+            <element kind="textField" x="520" y="0" width="100" height="20" hTextAlign="Right"><expression><![CDATA[$F{amount}]]></expression></element>
+            <element kind="textField" x="620" y="0" width="182" height="20" blankWhenNull="true"><expression><![CDATA["  " + $F{remarks}]]></expression></element>
+        </band>
+    </detail>
+
+    <summary height="30">
+        <element kind="textField" x="0" y="8" width="802" height="20" bold="true">
+            <expression><![CDATA["Total payments: " + $V{REPORT_COUNT} + "     Total amount: " + $P{totalAmount}]]></expression>
+        </element>
+    </summary>
+</jasperReport>
