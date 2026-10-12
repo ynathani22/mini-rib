@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family: Arial, sans-serif; color: #333;">
+<p>Dear <strong th:text="${customerName}">Customer</strong>,</p>
+
+<p>
+    Please find attached your <strong th:text="${transferType}">NEFT</strong> payment details
+    from <span th:text="${fromDate}">01-10-2026</span>
+    to <span th:text="${toDate}">31-10-2026</span>.
+</p>
+
+<table style="border-collapse: collapse;">
+    <tr>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;">Total payments</td>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;" th:text="${paymentCount}">0</td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;">Total amount</td>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;" th:text="${totalAmount}">0.00</td>
+    </tr>
+    <tr>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;">File format</td>
+        <td style="padding: 4px 12px; border: 1px solid #ccc;" th:text="${downloadType}">PDF</td>
+    </tr>
+</table>
+
+<p th:if="${paymentCount == 0}" style="color: #a00;">No payments found for the selected period.</p>
+
+<p>Regards,<br>Mini RIB</p>
+<p style="font-size: 11px; color: #888;">This is an auto-generated email. Please do not reply.</p>
+</body>
+</html>
